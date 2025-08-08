@@ -1,36 +1,166 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# To-Do List App - Complete Task Management Solution
 
-## Getting Started
+A comprehensive task management web application built with Next.js 14, featuring real-time updates, project categorization, and priority tracking.
 
-First, run the development server:
+![Task Manager](https://img.shields.io/badge/Next.js-14-black) ![MongoDB](https://img.shields.io/badge/MongoDB-green) ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-blue)
 
+---
+
+## 🚀 Features
+
+### **Core Task Management**
+- ✅ Create, edit, delete, and complete tasks
+- ✅ Three priority levels: **Very Important**, **Moderate**, and **Normal**
+- ✅ Due date tracking with visual indicators
+- ✅ Rich task descriptions and metadata
+- ✅ Smart task sorting by urgency and due dates
+
+### **Real-Time Overdue Tracking**
+- ⏳ Live overdue timers that update every second
+- ⏱ Displays format: `"2h 15m overdue"`
+- 🔔 Visual alerts for overdue tasks
+- 📊 Overdue statistics and breakdown
+
+### **Project Organization**
+- 📁 Create and manage unlimited projects
+- 📌 Project-specific task views
+- 📈 Project statistics and progress tracking
+- 📑 Task grouping within projects by priority
+
+### **Multiple Dashboard Views**
+- 📝 **To-do Page**: All active tasks with smart sorting
+- 📊 **Dashboard**: Tasks grouped by project and importance
+- 📂 **Projects**: Project management with drill-down capabilities
+- 📌 **Category Pages**: Filter by Very Important, Moderate, Overdue, Completed
+- 📈 **Live Statistics**: Real-time task counts and progress
+
+### **User Experience**
+- 🎨 Clean, modern Bootstrap-based design
+- 📱 Fully responsive (desktop, tablet, mobile)
+- ⚡ Real-time updates without page refresh
+- 🧭 Intuitive navigation with visual feedback
+- 💾 Persistent data storage
+
+---
+
+## 🛠 Quick Start
+
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
+- MongoDB (optional — uses localStorage for demo)
+
+### Installation
 ```bash
+# 1. Download and extract
+unzip todo-app-nextjs-project.zip
+cd todo-app-project
+
+# 2. Install dependencies
+npm install
+# or
+yarn install
+
+# 3. Environment setup (optional)
+cp .env.local.example .env.local
+MONGODB_URI=mongodb://localhost:27017/todoapp
+
+# 4. Run development server
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📖 User Guide
 
-## Learn More
+### Navigation Structure
+- **To-do** — All active tasks
+- **Dashboard** — Overview grouped by project and priority
+- **Projects** — Manage projects and view tasks
+- **Very Important** — Urgent tasks
+- **Moderate** — Medium-priority tasks
+- **Overdue** — Past-due tasks with live timers
+- **Completed** — Finished tasks
 
-To learn more about Next.js, take a look at the following resources:
+### Adding Tasks
+1. Click **"Add Task"**
+2. Enter task name, due date, project, and importance
+3. Save to update instantly
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Managing Projects
+- Add projects from **Projects** page
+- View project-specific tasks grouped by urgency
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Overdue Timers
+- Show `"Xh Ym overdue"`
+- Updates every second
+- Always sorted at the top
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📂 Project Structure
+```
+todo-app-project/
+├── app/
+│   ├── api/
+│   ├── components/
+│   ├── lib/
+│   ├── globals.css
+│   ├── layout.js
+│   └── page.js
+├── models/
+├── public/
+├── package.json
+├── next.config.js
+├── .env.local.example
+└── README.md
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🖥 Tech Stack
+- **Frontend**: Next.js 14, React 18, Bootstrap 5
+- **Backend**: Next.js API Routes
+- **Database**: MongoDB + Mongoose
+
+---
+
+## 🎨 Styling
+- **Priority Colors**:
+  - Very Important: 🔴 Red
+  - Moderate: 🟡 Yellow
+  - Normal: ⚪ Gray
+- Fully responsive for all devices
+
+---
+
+## ⚙ Configuration
+Create `.env.local`:
+```
+MONGODB_URI=mongodb://localhost:27017/todoapp
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key
+```
+
+---
+
+## 🧩 Development Commands
+```bash
+npm run dev       # Dev server
+npm run build     # Production build
+npm start         # Start server
+npm run lint      # Lint code
+```
+
+---
+
+## 📜 License
+MIT License — Free to use and modify.
+
+---
+
+**Built with ❤ using Next.js, React, and MongoDB**
