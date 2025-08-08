@@ -1,27 +1,24 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
 }
 
 * {
@@ -30,13 +27,257 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.sidebar {
+  position: fixed !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+  color: #007bff;
+}
+
+.sidebar .nav-link.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.sidebar .nav-link i {
+  margin-right: 8px;
+}
+
+.task-card {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.task-card.completed {
+  background-color: #f8f9fa;
+  opacity: 0.8;
+}
+
+.task-card.completed .task-title {
+  text-decoration: line-through;
+}
+
+.importance-very {
+  border-left: 4px solid #dc3545;
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.importance-moderate {
+  border-left: 4px solid #ffc107;
+  background-color: rgba(255, 193, 7, 0.05);
+}
+
+.importance-normal {
+  border-left: 4px solid #6c757d;
+  background-color: rgba(108, 117, 125, 0.05);
+}
+
+.overdue-timer {
+  color: #dc3545;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.project-card {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.task-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.task-description {
+  color: #6c757d;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.task-meta {
+  font-size: 0.8em;
+  color: #6c757d;
+}
+
+.due-date {
+  margin-right: 15px;
+}
+
+.project-name {
+  font-size: 0.85em;
+  background-color: #e9ecef;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.importance-badge {
+  font-size: 0.75em;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.importance-badge.very {
+  background-color: #dc3545;
+  color: white;
+}
+
+.importance-badge.moderate {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.importance-badge.normal {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-task-action {
+  font-size: 0.8em;
+  padding: 4px 8px;
+  margin-right: 5px;
+}
+
+.dashboard-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.project-group {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+.project-group-title {
+  margin-bottom: 15px;
+  color: #007bff;
+  font-weight: 600;
+}
+
+.importance-group {
+  margin-bottom: 25px;
+}
+
+.importance-group-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.importance-group-title.very {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+.importance-group-title.moderate {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #856404;
+}
+
+.importance-group-title.normal {
+  background-color: rgba(108, 117, 125, 0.1);
+  color: #495057;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6c757d;
+}
+
+.empty-state i {
+  font-size: 3em;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative !important;
+    height: auto;
+    padding: 0;
+  }
+
+  .task-card {
+    padding: 12px;
+  }
+
+  .task-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-meta > * {
+    margin-bottom: 5px;
   }
 }
